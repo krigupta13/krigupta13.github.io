@@ -1,0 +1,152 @@
+/* ---- Design tokens, taken from the Figma export ---- */
+:root {
+  --cream: #F5F0E8;
+  --ink: #1A2E35;
+  --teal: #2A7A84;
+  --coral: #F07058;
+  --label-gray: #333333;
+
+  --font-display: 'Baloo 2', sans-serif;
+  --font-label: 'Inter', sans-serif;
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background: var(--cream);
+  color: var(--ink);
+  font-family: var(--font-label);
+  -webkit-font-smoothing: antialiased;
+}
+
+a { text-decoration: none; }
+
+/* ---- Nav ---- */
+.nav {
+  background: var(--cream);
+  padding: 24px 6vw;
+}
+
+.nav-inner {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 40px;
+  flex-wrap: wrap;
+  max-width: 1440px;
+  margin: 0 auto;
+}
+
+.nav-link {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 1rem;
+  color: var(--teal);
+  padding-bottom: 6px;
+  position: relative;
+}
+
+.nav-link.active {
+  color: var(--ink);
+  font-weight: 700;
+}
+
+.nav-link.active::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 2px;
+  background: var(--teal);
+  border-radius: 2px;
+}
+
+/* ---- Hero ---- */
+.hero {
+  max-width: 900px;
+  padding: 14vh 6vw 10vh;
+  margin: 0 auto;
+}
+
+.hero-heading {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: clamp(2.5rem, 6vw, 4.75rem);
+  line-height: 1.05;
+  margin: 0 0 28px;
+}
+
+.hero-heading .ink { color: var(--ink); }
+.hero-heading .teal { color: var(--teal); }
+
+.hero-pitch {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: clamp(1.25rem, 2.6vw, 1.9rem);
+  line-height: 1.35;
+  color: var(--teal);
+  max-width: 720px;
+  margin: 0 0 36px;
+}
+
+.stat-row {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-bottom: 28px;
+}
+
+.stat-card {
+  background: rgba(255, 255, 255, 0.17);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  border-radius: 8px;
+  padding: 18px 22px;
+  min-width: 200px;
+}
+
+.stat-value {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.25rem;
+  color: var(--coral);
+  margin: 0 0 6px;
+}
+
+.stat-label {
+  font-family: var(--font-label);
+  font-weight: 600;
+  font-size: 0.7rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--label-gray);
+  margin: 0;
+}
+
+.hero-note {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: 1rem;
+  color: var(--teal);
+  max-width: 640px;
+  margin: 0;
+}
+
+/* ---- Responsive ---- */
+@media (max-width: 640px) {
+  .nav-inner {
+    justify-content: center;
+    gap: 20px;
+  }
+  .hero {
+    padding: 8vh 6vw 6vh;
+  }
+  .stat-row {
+    flex-direction: column;
+  }
+  .stat-card {
+    min-width: 0;
+  }
+}
