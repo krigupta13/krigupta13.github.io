@@ -119,7 +119,7 @@
     </div>
   </section>
 
-  <section class="block block-wide" id="projects">
+  <!-- <section class="block block-wide" id="projects">
     <h2>Projects @sixtydayswithkri</h2>
     <div class="carousel" tabindex="0" aria-label="Personal projects, scroll sideways">
 
@@ -151,7 +151,7 @@
       </a>
 
     </div>
-  </section>
+  </section> -->
 
 </main>
 
@@ -169,20 +169,37 @@
   /* Highlights the nav item for the section you're viewing */
   (function () {
     var links = document.querySelectorAll('.pill-nav a[href^="#"]');
-    var map = { home: 'Home', work: 'Work', contact: 'Contact' };
-    var sections = ['home', 'work', 'contact']
-      .map(function (id) { return document.getElementById(id); })
-      .filter(Boolean);
-    if (!('IntersectionObserver' in window)) return;
-    var io = new IntersectionObserver(function (entries) {
-      entries.forEach(function (e) {
-        if (!e.isIntersecting) return;
-        links.forEach(function (a) {
-          a.classList.toggle('active', a.textContent.trim() === map[e.target.id]);
-        });
+    var order = [
+      { id: 'home', label: 'Home' },
+      { id: 'work', label: 'Work' },
+      { id: 'contact', label: 'Contact' }
+    ];
+
+    function setActive(label) {
+      links.forEach(function (a) {
+        a.classList.toggle('active', a.textContent.trim() === label);
       });
-    }, { rootMargin: '-40% 0px -55% 0px' });
-    sections.forEach(function (s) { io.observe(s); });
+    }
+
+    function update() {
+      var current = order[0].label;
+      var line = window.innerHeight * 0.35;
+
+      order.forEach(function (item) {
+        var el = document.getElementById(item.id);
+        if (el && el.getBoundingClientRect().top <= line) current = item.label;
+      });
+
+      /* The footer is short, so it never reaches the line above. At the bottom of the page, force Contact. */
+      var atBottom = window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 4;
+      if (atBottom) current = 'Contact';
+
+      setActive(current);
+    }
+
+    window.addEventListener('scroll', update, { passive: true });
+    window.addEventListener('resize', update);
+    update();
   })();
 </script>
 
