@@ -240,7 +240,7 @@ h3 {
 .carousel .card { flex: 0 0 min(602px, 86vw); scroll-snap-align: start; }
 
 /* ---------- Footer ---------- */
-.foot { text-align: center; padding-bottom: 90px; }
+.foot { text-align: center; padding-bottom: 70px; }
 
 .foot-pill {
   display: inline-flex;
