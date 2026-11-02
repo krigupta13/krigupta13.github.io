@@ -166,11 +166,11 @@
 
   <div class="game" id="game">
     <div class="game-head">
-      <span class="game-title">Snake <!-- <span class="game-sub">(yes, the Nokia one)</span> --> </span>
+      <!-- <span class="game-title">Snake <!-- <span class="game-sub">(yes, the Nokia one)</span></span> -->
       <span class="game-score" id="gameScore" aria-live="polite">Score 0</span>
     </div>
     <canvas id="gameCanvas" width="600" height="390" tabindex="0" aria-label="Snake game. Use the arrow keys or swipe to steer the snake, and eat the coral dots without hitting the walls or yourself."></canvas>
-    <p class="game-hint">Arrow keys, WASD or swipe to steer</p>
+   <p class="game-hint">For PC, use arrow or WASD keys. <br><br> For mobile, swipe to steer</p>
   </div>
 </footer>
 
@@ -397,7 +397,7 @@
           sub = 'Click, tap or press an arrow key to keep going';
         } else {
           title = won ? 'You filled the whole board!' :
-                  score >= 15 ? 'Smooth run. Now let\u2019s talk :)' :
+                  //score >= 15 ? 'Smooth run. Now let\u2019s talk :)' :
                   'Game over. Score ' + score;
           sub = 'Click, tap or press an arrow key to play again';
         }
