@@ -34,7 +34,7 @@ img { display: block; max-width: 100%; }
 
 /* ---------- Top bar ---------- */
 .top {
-  position: sticky;
+  position: absolute;
   top: 0;
   z-index: 10;
   display: flex;
@@ -53,7 +53,7 @@ img { display: block; max-width: 100%; }
 }
 
 .pill-nav {
-  position: absolute;
+  position: sticky;
   left: 50%;
   transform: translateX(-50%);
   display: flex;
